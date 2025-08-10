@@ -2,7 +2,14 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      { path: '', name: 'home', component: () => import('pages/IndexPage.vue') },
+      {
+        path: 'form-empleado/:id?',
+        name: 'formEmpleado',
+        component: () => import('pages/FormEmpleado.vue'),
+      },
+    ],
   },
 
   // Always leave this as last one,
